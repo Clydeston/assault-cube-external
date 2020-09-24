@@ -7,6 +7,13 @@
 #define entity_team 0x32C
 #define entity_jump 0x69 
 #define entity_speed 0x80  
+#define entity_x 0x34
+#define entity_y 0x38
+#define entity_z 0x3C
+#define entity_head_x 0x4
+#define entity_head_y 0x8
+#define entity_head_z 0xC
+#define view_matrix 0x501AE8
 
 #define ammo_address 0x637e9
 #define recoil_address 0x63786

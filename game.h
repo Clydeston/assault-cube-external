@@ -3,6 +3,7 @@
 #include "offsets.h"
 #include "mem.h"
 #include "proc.h"
+#include "vector.h"
 
 class Game
 {
@@ -18,6 +19,8 @@ class Game
 				int health;
 				int ammo;
 				void GetLocalPlayerInfo(Game game);
+				Vec2 vScreen;
+				Vec2 vHead;
 		};
 		class Entity
 		{
@@ -27,11 +30,17 @@ class Game
 				char name[16];
 				int health;
 				void GetEntityInfo(Game game, int entityListPosition);
+				Vec3 GetEntityHeadPos(Entity entity, Game game);
+				Vec3 GetEntityPos(Entity entity, Game game);
 		};
 		Entity playerList[32];
 		int playerCount;
 		HANDLE hProcess = 0;
 		uintptr_t moduleBaseAddress = 0;
+		bool WorldToScreen(Vec3 pos, Vec2& screen, float matrix[16], int windowWidth, int windowHeight);
+		float Matrix[16];
+		HWND hWnd;
+		HDC HDC;
 };
 
 
